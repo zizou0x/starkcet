@@ -1,0 +1,26 @@
+version: '3'
+services:
+  starkcet-front:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - 3000:3000
+    depends_on:
+      - starkcet-back
+    networks:
+      - faucet
+  starkcet-back:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    environment:
+      - PRIVATE_KEY=0
+      - STARKNET_ACCOUNT_ADDRESS=0
+      - TOKEN_ADDRESS=0
+      - RPC_URL=0
+      - AMOUNT_TRANSFERED=1000000000000000
+    networks:
+      - faucet
+networks:
+  faucet:
