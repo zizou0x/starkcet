@@ -56,9 +56,14 @@ const BodyContainer = styled.div`
   padding: 30px 0px;
   width: 50%;
   max-width: 800px;
+  transform-style: box-shadow .2s ease-in-out;
+  border: 1px solid rgba(251,252,255,.3); 
   z-index: 10;
   @media (max-width: 1000px) {
     width: 90%;
+  }
+  :hover {
+    box-shadow: 0 2px 16px #fe7506;
   }
 `;
 

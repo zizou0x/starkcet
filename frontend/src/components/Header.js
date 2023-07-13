@@ -1,5 +1,6 @@
 import './style/index.css'
-import kasarLogo from '../assets/kasar_logo.png'
+import kakarotLogo from '../assets/kakarot_logo.svg'
+import kakarotNameLogo from '../assets/kakarot_name_logo.svg'
 import styled from "styled-components"
 
 
@@ -7,14 +8,10 @@ export default function Header() {
 
   return (
     <Main>
-      <MainTitle>
-        STARK
-        <EndTitle>
-          CET
-        </EndTitle>
+       <MainTitle>
+         <Image src={kakarotNameLogo} alt="Avatar" />
       </MainTitle>
       <Navigation>
-        <a href="https://kasar.io"><Image src={kasarLogo} alt="Avatar" /></a>
       </Navigation>
     </Main>
   )

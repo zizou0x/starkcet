@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import styled from 'styled-components';
-import starknet_logo from '../assets/starknet_logo.png'
+import kakarot_logo from '../assets/kakarot_logo.svg'
 import { toast } from 'react-toastify';
 
 
@@ -88,8 +88,8 @@ function Faucet() {
   return (
     <FaucetContainer>
       <Col style={{ width: '100%' }}>
-        <Image src={starknet_logo} alt="Avatar" />
-        <TextField style={{ width: '100%' }} label="Enter Your Wallet Address (0x...)" variant="outlined" onChange={(e) => setAddressInput(e.target.value)} />
+        <Image src={kakarot_logo} alt="Avatar" />
+          <TextField style={{ width: '100%' }} label="Enter Your Wallet Address (0x...)" variant="outlined" onChange={(e) => setAddressInput(e.target.value)} />
       </Col>
       <Col>
         <Button style={{ minWidth: '120px' }} color='primary' variant="contained" onClick={() => { starkcetFaucet() }}>Get Tokens</Button>
@@ -106,6 +106,7 @@ const Image = styled.img`
   width: 50px;
   height: 50px;
 `
+
 
 
 const FaucetContainer = styled.div`
