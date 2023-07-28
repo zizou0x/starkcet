@@ -1,21 +1,17 @@
 import React, { useContext, useState } from "react";
 
-
-
-const TransactionContext = React.createContext()
-
+const TransactionContext = React.createContext();
 
 export function useTransaction() {
-    return useContext(TransactionContext);
+  return useContext(TransactionContext);
 }
 
 export default function TransactionProvider({ children }) {
-    const [step, setStep] = useState(-1);
+  const [step, setStep] = useState(-1);
 
-
-    return (
-        <TransactionContext.Provider value={[step, setStep]}>
-            {children}
-        </TransactionContext.Provider>
-    )
+  return (
+    <TransactionContext.Provider value={[step, setStep]}>
+      {children}
+    </TransactionContext.Provider>
+  );
 }

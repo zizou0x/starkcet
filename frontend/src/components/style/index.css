@@ -18,12 +18,7 @@
   1000% {
     background-position: 0% 50%;
   }
-
 }
-
-
-
-
 
 .title,
 .faucet {
@@ -31,7 +26,6 @@
 }
 
 .faucet {
-
   display: flex;
   align-items: center;
   justify-content: center;
@@ -44,8 +38,15 @@
   border-radius: 5px;
   padding: 0.75rem;
   font-size: 1.1rem;
-  font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
-    Bitstream Vera Sans Mono, Courier New, monospace;
+  font-family:
+    Menlo,
+    Monaco,
+    Lucida Console,
+    Liberation Mono,
+    DejaVu Sans Mono,
+    Bitstream Vera Sans Mono,
+    Courier New,
+    monospace;
 }
 
 .card {
@@ -56,7 +57,9 @@
   text-decoration: none;
   border: 1px solid #eaeaea;
   border-radius: 10px;
-  transition: color 0.15s ease, border-color 0.15s ease;
+  transition:
+    color 0.15s ease,
+    border-color 0.15s ease;
   width: 100%;
 }
 
@@ -108,8 +111,6 @@
   cursor: pointer;
 }
 
-
-
 .font-medium {
   font-weight: 500;
 }
@@ -160,8 +161,8 @@ input:focus {
 }
 
 /* active state */
-input:focus~.placeHolder,
-input:valid~.placeHolder {
+input:focus ~ .placeHolder,
+input:valid ~ .placeHolder {
   top: -20px;
   left: 10px;
   font-size: 14px;
@@ -179,7 +180,7 @@ input:valid~.placeHolder {
 }
 
 /* active state */
-input:focus~.highlight {
+input:focus ~ .highlight {
   -webkit-animation: inputHighlighter 0.3s ease;
   -moz-animation: inputHighlighter 0.3s ease;
   animation: inputHighlighter 0.3s ease;
@@ -188,7 +189,7 @@ input:focus~.highlight {
 /* ANIMATIONS ================ */
 @-webkit-keyframes inputHighlighter {
   from {
-    background: #5264AE;
+    background: #5264ae;
   }
 
   to {
@@ -199,7 +200,7 @@ input:focus~.highlight {
 
 @-moz-keyframes inputHighlighter {
   from {
-    background: #5264AE;
+    background: #5264ae;
   }
 
   to {
@@ -210,7 +211,7 @@ input:focus~.highlight {
 
 @keyframes inputHighlighter {
   from {
-    background: #5264AE;
+    background: #5264ae;
   }
 
   to {
@@ -232,7 +233,7 @@ input:focus~.highlight {
 }
 
 .dd-button:after {
-  content: '';
+  content: "";
   top: 50%;
   right: 15px;
   transform: translateY(-50%);
@@ -242,7 +243,6 @@ input:focus~.highlight {
   border-right: 5px solid transparent;
   border-top: 5px solid black;
 }
-
 
 .dd-input {
   display: none;
@@ -260,11 +260,11 @@ input:focus~.highlight {
   width: 150px;
 }
 
-.dd-input+.dd-menu {
+.dd-input + .dd-menu {
   display: none;
 }
 
-.dd-input:checked+.dd-menu {
+.dd-input:checked + .dd-menu {
   display: block;
 }
 
@@ -365,7 +365,8 @@ input:focus~.highlight {
 }
 
 .elogo .l4 {
-  transform: translateY(5px) rotateY(-90deg) rotateZ(0deg) translateZ(5px) rotateX(156.5deg);
+  transform: translateY(5px) rotateY(-90deg) rotateZ(0deg) translateZ(5px)
+    rotateX(156.5deg);
   border-bottom: 25px solid rgba(50, 50, 51, 0.45);
 }
 
@@ -397,7 +398,7 @@ h2 {
 }
 
 .table-header {
-  background-color: #95A5A6;
+  background-color: #95a5a6;
   font-size: 14px;
   text-transform: uppercase;
   letter-spacing: 0.03em;

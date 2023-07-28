@@ -11,8 +11,5 @@
     "main.f8717f0b.js.map": "/static/js/main.f8717f0b.js.map",
     "787.9a6a1170.chunk.js.map": "/static/js/787.9a6a1170.chunk.js.map"
   },
-  "entrypoints": [
-    "static/css/main.43a77fe6.css",
-    "static/js/main.f8717f0b.js"
-  ]
+  "entrypoints": ["static/css/main.43a77fe6.css", "static/js/main.f8717f0b.js"]
 }

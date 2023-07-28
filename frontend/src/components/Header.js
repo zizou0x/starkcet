@@ -1,23 +1,21 @@
-import './style/index.css'
-import kasarLogo from '../assets/kasar_logo.png'
-import styled from "styled-components"
-
+import "./style/index.css";
+import kasarLogo from "../assets/kasar_logo.png";
+import styled from "styled-components";
 
 export default function Header() {
-
   return (
     <Main>
       <MainTitle>
         STARK
-        <EndTitle>
-          CET
-        </EndTitle>
+        <EndTitle>CET</EndTitle>
       </MainTitle>
       <Navigation>
-        <a href="https://kasar.io"><Image src={kasarLogo} alt="Avatar" /></a>
+        <a href="https://kasar.io">
+          <Image src={kasarLogo} alt="Avatar" />
+        </a>
       </Navigation>
     </Main>
-  )
+  );
 }
 
 const Main = styled.div`
@@ -28,7 +26,7 @@ const Main = styled.div`
   @media (max-width: 1000px) {
     padding: 0px 10px;
   }
-`
+`;
 
 const MainTitle = styled.h1`
   color: #2d2d71;
@@ -37,11 +35,11 @@ const MainTitle = styled.h1`
   @media (max-width: 1000px) {
     font-size: 30px;
   }
-`
+`;
 
 const EndTitle = styled.span`
   font-weight: 500;
-`
+`;
 
 const Navigation = styled.div`
   display: flex;
@@ -50,8 +48,7 @@ const Navigation = styled.div`
   @media (max-width: 1000px) {
     gap: 10px;
   }
-`
-
+`;
 
 const Image = styled.img`
   width: 50px;
@@ -60,4 +57,4 @@ const Image = styled.img`
     width: 35px;
     height: 35px;
   }
-`
+`;
