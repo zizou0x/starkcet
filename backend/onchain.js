@@ -1,3 +1,4 @@
+import "dotenv/config";
 import * as starknet from "starknet";
 import erc20Json from "./erc20_abi.json" assert { type: "json" };
 
@@ -11,7 +12,7 @@ const provider = new starknet.RpcProvider({
 const account = new starknet.Account(
   provider,
   address,
-  process.env.PRIVATE_KEY,
+  process.env.PRIVATE_KEY
 );
 
 const contract = new starknet.Contract(erc20Json, eth_address, provider);
@@ -42,10 +43,8 @@ export async function transfer(to) {
 }
 
 export async function balanceOf(of) {
-  console.log("Getting balance of: " + of);
+  console.log(`balanceOf(${of}):`);
   const balance = await contract.balanceOf(of);
-  console.log(
-    "Balance -" + starknet.uint256.uint256ToBN(balance.balance).toString(),
-  );
+  console.log(starknet.uint256.uint256ToBN(balance.balance).toString());
   return starknet.uint256.uint256ToBN(balance.balance).toString();
 }
