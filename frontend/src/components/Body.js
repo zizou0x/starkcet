@@ -1,30 +1,30 @@
-import React, { useState, useEffect } from 'react';
-import styled from 'styled-components';
+import React, { useState, useEffect } from "react";
+import styled from "styled-components";
 import Faucet from "./Faucet";
-import TransactionProvider from './TransactionContext';
+import TransactionProvider from "./TransactionContext";
 
 function Body() {
   const [isBackendAlive, setIsBackendAlive] = useState(true);
 
   useEffect(() => {
-    fetch('/health')
-      .then(response => {
+    fetch("/health")
+      .then((response) => {
         if (response.ok) {
           return response.text();
         } else {
           throw new Error("Backend is not alive");
         }
       })
-      .then(data => {
-        if (data === 'ok') {
+      .then((data) => {
+        if (data === "ok") {
           setIsBackendAlive(true);
         } else {
           setIsBackendAlive(false);
         }
       })
-      .catch(error => {
+      .catch((error) => {
         setIsBackendAlive(false);
-        console.error('Error:', error);
+        console.error("Error:", error);
       });
   }, []);
 
@@ -35,11 +35,9 @@ function Body() {
         <Faucet />
       </TransactionProvider>
       {!isBackendAlive && (
-        <AlertBox>
-          Unable to connect to the backend.
-        </AlertBox>
+        <AlertBox>Unable to connect to the backend.</AlertBox>
       )}
-    </BodyContainer >
+    </BodyContainer>
   );
 }
 
