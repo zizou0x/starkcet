@@ -18,8 +18,8 @@ const account = new starknet.Account(
 const contract = new starknet.Contract(erc20Json, eth_address, provider);
 
 export async function transfer(to) {
-  console.log("Transfer to - ", to);
-  let result = contract.populate("transfer", {
+  console.log(`transfer(${to})`);
+  let call = contract.populate("transfer", {
     recipient: to,
     amount: {
       low: process.env.AMOUNT_TRANSFERED,
@@ -27,12 +27,12 @@ export async function transfer(to) {
     },
   });
 
-  console.log("Call detail - ", result);
+  console.log("Call:", call);
   const nonce = await provider.getNonceForAddress(address);
-  console.log("Nonce - ", nonce);
+  console.log("Nonce", nonce);
   const version = "0x1";
   const maxFee = "0x11111111111";
-  let hash = await account.execute(result, undefined, {
+  let hash = await account.execute(call, undefined, {
     nonce,
     maxFee,
     version,
@@ -47,4 +47,22 @@ export async function balanceOf(of) {
   const balance = await contract.balanceOf(of);
   console.log(starknet.uint256.uint256ToBN(balance.balance).toString());
   return starknet.uint256.uint256ToBN(balance.balance).toString();
+}
+
+export async function deployKakarotAccount(evmAddress) {
+  const call = {
+    contractAddress: process.env.KAKAROT_ADDRESS,
+    entrypoint: "deploy_externally_owned_account",
+    calldata: [parseInt(evmAddress, 16)],
+  };
+  const nonce = await provider.getNonceForAddress(address);
+  console.log("Nonce - ", nonce);
+  const version = "0x1";
+  const maxFee = "0x11111111111";
+  const hash = await account.execute(call, undefined, {
+    nonce,
+    maxFee,
+    version,
+  });
+  return hash;
 }

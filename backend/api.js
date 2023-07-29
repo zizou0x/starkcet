@@ -1,4 +1,4 @@
-import { transfer, balanceOf } from "./onchain.js";
+import { balanceOf, deployKakarotAccount, transfer } from "./onchain.js";
 
 export function initRoutes(app) {
   app.get("/health", async (req, res) => {
@@ -40,6 +40,26 @@ export function initRoutes(app) {
       return res.json({ message: `Query successful.`, balance: balance });
     } catch (error) {
       console.error(`Error in /balance: ${error.message}`);
+      return res.status(500).json({ message: "Internal Server Error" });
+    }
+  });
+
+  app.post("/deploy-kakarot-account", async (req, res) => {
+    try {
+      const ofAddress = req.body.of;
+      if (!ofAddress) {
+        return res
+          .status(400)
+          .json({ message: 'Missing "of" address in request body.' });
+      }
+
+      const txHash = await deployKakarotAccount(ofAddress);
+      return res.json({
+        message: `Account successfully deployed. Transaction hash: ${txHash}`,
+        hash: txHash,
+      });
+    } catch (error) {
+      console.error(`Error in /deploy-kakarot-account: ${error.message}`);
       return res.status(500).json({ message: "Internal Server Error" });
     }
   });
